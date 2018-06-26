@@ -38,7 +38,7 @@ for i_episode in range(3000):
     while True:
         if RENDER: env.render()
 
-        action = RL.choose_action(observation)
+        action = RL.chooseAction(observation)
 
         observation_, reward, done, info = env.step(action)
 
