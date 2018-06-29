@@ -73,6 +73,8 @@ class QLearning:
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
+
+"""
     def appendNotExistingState(self, state):
         if state not in self.q_table.index:
             # append new state to q-table
@@ -83,3 +85,4 @@ class QLearning:
                     name=state,
                 )
             )
+"""

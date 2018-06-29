@@ -1,92 +1,46 @@
-# 1 episode =  96 steps
-# 1 state is a step every 15 min
-# number_bitcoins * [p(t)/p(t-1)-1], price
-
-from CriptoQLearning.Qlearning import QLearning
-from CriptoQLearning.Action import Action
+from CriptoQLearning.Trade import Trade
 from CriptoQLearning.Functions import *
-
-"""
-Arguments:
-    arg[1]: is batch (should be 96)
-    arg[2]: is number of episodes
-    arg[3]: the goal(limit of profit)
-    arg[4]: the balance
-if len(sys.argv) != 4:
-    print("Error, args number do not match")
-    exit()
-
-batch, num_episodes, goal, balance = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-"""
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from CriptoQLearning.Qlearning import QLearning as RL
+from CriptoQLearning.Action import Action
 
 
-# trading
-def trade():
-    reward = 0
-    size_episode = 7  # ventanas cortas de tiempo
-    bitcoins = 1000  # mi saldo
+def plot(data, title='Crypto currency chart', ylabel='Price (BTC-USD)'):
+    # Data for plotting
+    t = range(0, len(data))
+    s = data
 
-    data = getStockDataVec("bitcoin")
-    data_length = len(data) - 1
+    # Note that using plt.subplots below is equivalent to using
+    # fig = plt.figure() and then ax = fig.add_subplot(111)
+    fig, ax = plt.subplots()
+    ax.plot(t, s)
 
-    num_episodes = int(data_length / size_episode)
-    inventory = [data[0]]
-
-    # loop for each episode, each episode has 96 states
-    for episode in range(num_episodes):
-        # initialize s, initial observation, same prob, probability of [buy sell hold]
-        s = []
-        print(">------ Episode = ", episode)
-        # loop for each step in episode
-        for t in range(1, size_episode - 1):
-
-            s_ = getState(data, t, size_episode)  # pedazo de data de tamano size_episode
-
-            # RL choose action based on observation
-            action = RL.chooseAction(s_)
-            # print("Action = ", action)
-
-            # For last episode SELL
-            if episode == num_episodes:
-                action = Action.SELL
-
-            # If bitcoins is less than 0
-            if bitcoins <= 0:
-                action = Action.SELL
-
-            # For every state in episode
-            if action == Action.BUY:
-                if bitcoins / int((data[t])) > 1:
-                    bitcoins = bitcoins - data[t]
-                    # agregamos a la lista el precio
-                    inventory.append(data[t])
-            elif action == Action.SELL:
-                if len(inventory) > 0 and t < len(inventory):
-                    last_value = inventory[len(inventory) - 1]
-                    bitcoins = bitcoins + last_value
-                    inventory.pop(t)
-
-            done = True if t == data_length - 1 else False
-
-            # maximizar
-            reward = reward + bitcoins * ((data[t] / data[t - 1]) - 1)
-
-            # RL learn from this transition
-            # RL.learn()
-            if len(s) == 5:
-                RL.q_table.append((s, action, reward, s_, done))
-
-            # swap observation
-            s = s_
-
-            print("Reward = ", formatPrice(reward))
-            # print("Balance =", balance)
-
-            if len(RL.q_table) > size_episode:
-                RL.learn(size_episode)
+    # plot chart
+    ax.set(xlabel='time (days)', ylabel=ylabel, title=title)
+    ax.grid()
+    fig.savefig("data.png")
+    plt.show()
 
 
 if __name__ == "__main__":
-    actions = [Action.BUY, Action.SELL, Action.HOLD]
-    RL = QLearning(actions)
-    trade()
+    # **** Inputs ****
+    balance = 200
+    num_bitcoins = 3
+    size_episode = 7
+
+    # Data
+    data = getStockDataVec("bitcoin")  # CSV data
+    if len(data) == 0:
+        print("No data")
+
+    # Show data
+    # plot(data)
+
+    actions = [Action.SELL, Action.BUY, Action.HOLD]
+    brain = RL(actions)
+
+    # **** Trading ****
+    t = Trade(data, size_episode, num_bitcoins, balance, brain)
+    t.trade()
