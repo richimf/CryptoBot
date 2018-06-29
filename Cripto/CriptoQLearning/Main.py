@@ -1,19 +1,12 @@
-import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-import math
-import numpy
 
 from CriptoQLearning.Trade import Trade
-from CriptoQLearning.Action import Action
 from CriptoQLearning.Functions import *
 from CriptoQLearning.Qlearning import QLearning as RL
 
 
 # Data for plotting
-def createChart(t, data, title='Crypto currency chart', xlabel='time (days)', ylabel='Price (BTC-USD)', color='r'):
-    # Note that using plt.subplots below is equivalent to using
-    # fig = plt.figure() and then ax = fig.add_subplot(111)
+def createChart(data, title='Crypto currency chart', xlabel='time (days)', ylabel='Price (BTC-USD)', color='r'):
     t = range(0, len(data))
     fig, ax = plt.subplots()
     ax.plot(t, data, color)
@@ -45,5 +38,5 @@ if __name__ == "__main__":
     history = t.trade()
 
     # Plot data
-    createChart(t, data)
-    createChart(t, history, 'Reward chart', 'time', 'Balance', 'b')
+    createChart(data)
+    createChart(history, 'Reward chart', 'time', 'Balance', 'b')
