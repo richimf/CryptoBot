@@ -1,7 +1,6 @@
-from agent import Agent
-from functions import *
+from Trader.agent import Agent
+from Trader.functions import *
 import sys
-import matplotlib.pyplot as plt
 
 if len(sys.argv) != 4:
     print("Usage: python train.py [stock] [window] [episodes]")

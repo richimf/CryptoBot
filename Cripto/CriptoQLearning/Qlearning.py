@@ -1,54 +1,77 @@
 import numpy as np
 import pandas as pd
-from CriptoQLearning.Action import Action
+import random
+from keras.models import Sequential
+from keras.models import load_model
+from keras.layers import Dense
+from keras.optimizers import Adam
+from collections import deque
 
 
 class QLearning:
 
-    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.03):
+    def __init__(self, actions, action_size=3, state_size=6, model_name="", e_greedy=0.03, is_eval=False):
+        self.is_eval = is_eval
         self.actions = actions  # a list of actions [Action.BUY, Action.SELL, Action.HOLD]
-        self.lr = learning_rate
-        self.gamma = reward_decay
+        self.action_size = action_size
+        self.state_size = state_size
+
+        # Model RN
+        self.model_name = model_name
+        self.model = load_model("models/" + model_name) if is_eval else self._model()
+
+        # Q-Table memory
+        self.q_table = deque(maxlen=1000)
+
+        # Constants
+        self.gamma = 0.95
         self.epsilon = e_greedy
-        self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
+        self.epsilon_min = 0.01
+        self.epsilon_decay = 0.995
+
+    # The Neural Network
+    def _model(self):
+        model = Sequential()
+        model.add(Dense(units=64, input_dim=self.state_size, activation="relu"))
+        model.add(Dense(units=32, activation="relu"))
+        model.add(Dense(units=8, activation="relu"))
+        model.add(Dense(self.action_size, activation="linear"))
+        model.compile(loss="mse", optimizer=Adam(lr=0.001))
+        return model
 
     def chooseAction(self, state):
-        self.appendNotExistingState(state)
-        # action selection
-        if np.random.uniform() < self.epsilon:
-            # choose best action
-            state_action = self.q_table.loc[state, :]  # get action from: q_table via observation
-            '''print("\n>---- Choose action....")
-            print("> Q table = ")
-            print(self.q_table)
-            print("\n> Q table with observation = ", state)
-            print("> state_action = ")
-            print(state_action)'''
-            # state_action = state_action.reindex(np.random.permutation(state_action.index))  # some actions have same value
-            action = state_action.idxmax()  # el id de la accion con mayor valor
-            # print("> action (if) = ", action)
-        else:
-            # choose random action
-            action = Action.HOLD    # np.random.choice(self.actions)
-            # print("> action (else) = ", action)
+        # self.appendNotExistingState(state)
+        action = self.action(state)
+        print("Action = ", action)
         return action
 
+    def action(self, state):
+        if not self.is_eval and np.random.rand() <= self.epsilon:
+            return random.randrange(self.action_size)
+        options = self.model.predict(state)
+        return np.argmax(options[0])
+
     # state, action, reward, next state
-    def learn(self, s, a, r, s_):
-        self.appendNotExistingState(s_)
-        q_predict = self.q_table.loc[s, a]
-        if s_ != 'terminal':
-            # q_target = r + gamma*max_a[Q(S',a)]
-            q_target = r + self.gamma * self.q_table.loc[s_, :].max()  # next state is not terminal
-           # print("q_target", q_target)
-        else:
-            q_target = r  # next state is terminal
-        # Q(S,A) <- Q(S,A) + alfa[r + gamma*max_aQ(S',a) - Q(S,A)]
-        # Q(S,A) <- Q(S,A) + alfa[q_target - Q(S,A)]  # alfa is the learning rate: "self.lr"
-        # Q(S,A) <- Q(S,A) + self.lr * (q_target - q_predict)
-        # print("q_target", q_target)
-        # print("q_predict", q_predict)
-        self.q_table.loc[s, a] += self.lr * (q_target - q_predict)  # update
+    def learn(self, batch_size):
+        mini_batch = []
+        l = len(self.q_table)
+        for i in range(l - batch_size + 1, l):
+            mini_batch.append(self.q_table[i])
+
+        for state, action, reward, next_state, done in mini_batch:
+            print(state, action, reward, next_state, done)
+            target = reward
+            if not done:
+                target = reward + self.gamma * np.amax(self.model.predict(next_state)[0])
+
+            # print(state[0])
+            # state = pd.DataFrame(np.transpose(state[0]))
+            target_f = self.model.predict(state)
+            target_f[0][action] = target
+            self.model.fit(state, target_f, epochs=1, verbose=0)
+
+        if self.epsilon > self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
 
     def appendNotExistingState(self, state):
         if state not in self.q_table.index:

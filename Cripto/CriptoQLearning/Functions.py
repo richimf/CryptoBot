@@ -13,7 +13,7 @@ def getStockDataVec(key):
     lines = open("/Users/richie/Documents/GitHub/Botcito/Cripto/CriptoQLearning/data/" + key + ".csv", "r").read().splitlines()
 
     for line in lines[1:]:
-        vec.append(float(line.split(",")[4]))
+        vec.append(float(line.split(",")[4]))   # dame Adj Close
 
     return vec
 
