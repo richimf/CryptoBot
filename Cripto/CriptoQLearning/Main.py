@@ -1,10 +1,11 @@
-from CriptoQLearning.Trade import Trade
-from CriptoQLearning.Functions import *
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from CriptoQLearning.Qlearning import QLearning as RL
+
+from CriptoQLearning.Trade import Trade
 from CriptoQLearning.Action import Action
+from CriptoQLearning.Functions import *
+from CriptoQLearning.Qlearning import QLearning as RL
 
 
 def plot(data, title='Crypto currency chart', ylabel='Price (BTC-USD)'):
@@ -25,7 +26,7 @@ def plot(data, title='Crypto currency chart', ylabel='Price (BTC-USD)'):
 
 
 if __name__ == "__main__":
-    # **** Inputs ****
+    # Inputs
     balance = 200
     num_bitcoins = 3
     size_episode = 7
@@ -38,9 +39,10 @@ if __name__ == "__main__":
     # Show data
     # plot(data)
 
+    # Setup Reinforcement Learning
     actions = [Action.SELL, Action.BUY, Action.HOLD]
     brain = RL(actions)
 
-    # **** Trading ****
+    # Trading
     t = Trade(data, size_episode, num_bitcoins, balance, brain)
     t.trade()

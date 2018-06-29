@@ -5,19 +5,6 @@
 from CriptoQLearning.Functions import *
 from CriptoQLearning.Action import Action
 
-"""
-Arguments:
-    arg[1]: is batch (should be 96)
-    arg[2]: is number of episodes
-    arg[3]: the goal(limit of profit)
-    arg[4]: the balance
-if len(sys.argv) != 4:
-    print("Error, args number do not match")
-    exit()
-
-batch, num_episodes, goal, balance = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-"""
-
 
 class Trade:
     reward = 0
