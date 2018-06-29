@@ -9,9 +9,8 @@ from collections import deque
 
 class QLearning:
 
-    def __init__(self, actions, action_size=6, state_size=6, model_name="", e_greedy=1, is_eval=False):
+    def __init__(self, action_size=6, state_size=3, model_name="", e_greedy=1, is_eval=False):
         self.is_eval = is_eval
-        self.actions = actions  # a list of actions [Action.BUY, Action.SELL, Action.HOLD]
         self.action_size = action_size
         self.state_size = state_size
 
@@ -47,7 +46,6 @@ class QLearning:
         elif action == 2:
             action_str = "SELL"
 
-        print("Action = ", action_str)
         return action
 
     def action(self, state):
@@ -91,17 +89,3 @@ class QLearning:
                 self.epsilon *= self.epsilon_decay
 
             print("yep it learns")
-
-
-"""
-    def appendNotExistingState(self, state):
-        if state not in self.q_table.index:
-            # append new state to q-table
-            self.q_table = self.q_table.append(
-                pd.Series(
-                    [0] * len(self.actions),
-                    index=self.q_table.columns,
-                    name=state,
-                )
-            )
-"""

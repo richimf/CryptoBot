@@ -1,6 +1,8 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import math
+import numpy
 
 from CriptoQLearning.Trade import Trade
 from CriptoQLearning.Action import Action
@@ -8,27 +10,26 @@ from CriptoQLearning.Functions import *
 from CriptoQLearning.Qlearning import QLearning as RL
 
 
-def plot(data, title='Crypto currency chart', ylabel='Price (BTC-USD)'):
-    # Data for plotting
-    t = range(0, len(data))
-    s = data
-
+# Data for plotting
+def createChart(t, data, title='Crypto currency chart', xlabel='time (days)', ylabel='Price (BTC-USD)', color='r'):
     # Note that using plt.subplots below is equivalent to using
     # fig = plt.figure() and then ax = fig.add_subplot(111)
+    t = range(0, len(data))
     fig, ax = plt.subplots()
-    ax.plot(t, s)
+    ax.plot(t, data, color)
 
     # plot chart
-    ax.set(xlabel='time (days)', ylabel=ylabel, title=title)
+    ax.set(xlabel=xlabel, ylabel=ylabel, title=title)
     ax.grid()
-    fig.savefig("data.png")
+    # fig.savefig("data.png")
     plt.show()
+    # return ax
 
 
 if __name__ == "__main__":
     # Inputs
     balance = 200
-    num_bitcoins = 3
+    num_bitcoins = 6.233412
     size_episode = 32
 
     # Data
@@ -36,13 +37,13 @@ if __name__ == "__main__":
     if len(data) == 0:
         print("No data")
 
-    # Show data
-    # plot(data)
-
     # Setup Reinforcement Learning
-    actions = [Action.BUY, Action.SELL, Action.HOLD]
-    brain = RL(actions)
+    brain = RL()
 
     # Trading
     t = Trade(data, size_episode, num_bitcoins, balance, brain)
-    t.trade()
+    history = t.trade()
+
+    # Plot data
+    createChart(t, data)
+    createChart(t, history, 'Reward chart', 'time', 'Balance', 'b')
