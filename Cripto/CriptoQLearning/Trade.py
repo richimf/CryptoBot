@@ -18,10 +18,11 @@ class Trade:
 
     def trade(self):
         reward = 0
+        window = 0  # es la ventana de tiempo
         data_length = len(self.data) - 1
 
         num_episodes = int(data_length / self.size_episode)
-        inventory = [self.data[0]]
+        history_investments = [self.data[0]]
 
         # plot data
         # plot(data)
@@ -29,7 +30,7 @@ class Trade:
         # loop for each episode
         for episode in range(num_episodes):
             # initialize s, initial observation, same prob, probability of [buy sell hold]
-            s = []
+            s = [0, 0, 0, 0, False]
             print(">------ Episode = ", episode)
             # loop for each step in episode
             for t in range(1, self.size_episode - 1):
@@ -40,50 +41,57 @@ class Trade:
                 action = self.RL.chooseAction(s_)
                 # print("Action = ", action)
 
-                # For last episode SELL
-                if episode == num_episodes:
-                    action = Action.SELL
-
                 # If bitcoins is less than 0
                 if self.coins <= 0:
                     action = Action.SELL
 
                 # For every state in episode
+                current_coin_price = self.data[t]
                 if action == Action.BUY:
                     # update number of coins and balance
-                    coin_price = self.data[t]
                     investment = self.balance * self.percentage
-                    purchased_coins = investment / coin_price
+                    purchased_coins = investment / current_coin_price
                     self.coins = self.coins + purchased_coins  # update coins
                     self.balance = self.balance - investment  # update balance
 
-                    if self.coins / int((self.data[t])) > 1:
-                        self.coins = self.coins - self.data[t]
-                        # agregamos a la lista el precio
-                        inventory.append(self.data[t])
+                    # add it to investments list
+                    history_investments.append(self.data[t])
+
                 elif action == Action.SELL:
-                    if len(inventory) > 0 and t < len(inventory):
-                        last_value = inventory[len(inventory) - 1]
-                        self.coins = self.coins + last_value
-                        inventory.pop(t)
+                    # you must have some investment in order to sell
+                    if len(history_investments) > 0 and t < len(history_investments):
+                        last_value = history_investments[len(history_investments) - 1]
+                        if last_value < current_coin_price:
+                            self.balance = self.balance + self.coins * last_value  # update balance
+                            history_investments.pop(t)
+
+                # For last episode SELL ALL!
+                if episode == num_episodes and t == self.size_episode - 1:
+                    action = Action.SELL
 
                 done = True if t == data_length - 1 else False
 
-                # maximizar
+                # Set maximum reward
                 reward = reward + self.coins * ((self.data[t] / self.data[t - 1]) - 1)
                 # rewards.append(reward)
                 # RL learn from this transition
                 # RL.learn()
-                if len(s) == 5:
-                    self.RL.q_table.append((s, action, reward, s_, done))
+                if len(s_) > 0:
+                    print("s_[0] = ", s_[0])
+                    self.RL.q_table.append((s, action, reward, s_[0], done))
 
-                # swap observation
+                if len(history_investments) > len(self.RL.q_table):
+                    self.RL.learn(window, window + self.size_episode)
+
+                window = window + self.size_episode
+
+                if len(self.RL.q_table) > self.size_episode:
+                    self.RL.learn(self.size_episode, window)
+
+                # swap state
                 s = s_
 
                 print("Reward = ", formatPrice(reward))
                 # print("Balance =", balance)
-
-                if len(self.RL.q_table) > self.size_episode:
-                    self.RL.learn(self.size_episode)
 
         return reward

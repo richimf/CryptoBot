@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import random
 from keras.models import Sequential
 from keras.models import load_model
@@ -10,7 +9,7 @@ from collections import deque
 
 class QLearning:
 
-    def __init__(self, actions, action_size=3, state_size=6, model_name="", e_greedy=1, is_eval=False):
+    def __init__(self, actions, action_size=6, state_size=6, model_name="", e_greedy=1, is_eval=False):
         self.is_eval = is_eval
         self.actions = actions  # a list of actions [Action.BUY, Action.SELL, Action.HOLD]
         self.action_size = action_size
@@ -57,27 +56,41 @@ class QLearning:
         options = self.model.predict(state)
         return np.argmax(options[0])
 
-    # state, action, reward, next state
-    def learn(self, batch_size):
+    def get_minibatch(self, b_init, b_final):  # init - final of a range
         mini_batch = []
-        l = len(self.q_table)
-        for i in range(l - batch_size + 1, l):
-            mini_batch.append(self.q_table[i])
+        len_qtable = len(self.q_table)
+        b_range = b_final - b_init
+        gap_size = abs(len_qtable - b_range)
 
-        for state, action, reward, next_state, done in mini_batch:
-            print(state, action, reward, next_state, done)
-            target = reward
-            if not done:
-                target = reward + self.gamma * np.amax(self.model.predict(next_state)[0])
+        if len_qtable >= b_range:
+            for i in range(gap_size, len_qtable):
+                mini_batch.append(self.q_table[i])
 
-            # print(state[0])
-            # state = pd.DataFrame(np.transpose(state[0]))
-            target_f = self.model.predict(state)
-            target_f[0][action] = target
-            self.model.fit(state, target_f, epochs=1, verbose=0)
+        return mini_batch
 
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_decay
+    # state, action, reward, next state
+    def learn(self, gap_from, gap_to):
+        mini_batch = self.get_minibatch(gap_from, gap_to)
+
+        if len(mini_batch) >= self.action_size:
+            for state, action, reward, next_state, done in mini_batch:
+                print("state, action, reward, next_state, is_done")
+                print(state, action, reward, next_state, done)
+                print(next_state)
+                target = reward
+                if not done:
+                    print("", next_state.shape())
+                    prediction = self.model.predict(next_state)[0]
+                    if prediction:
+                        target = reward + self.gamma * np.amax(prediction)
+                target_f = self.model.predict(state)
+                target_f[0][action] = target
+                self.model.fit(state, target_f, epochs=1, verbose=0)
+
+            if self.epsilon > self.epsilon_min:
+                self.epsilon *= self.epsilon_decay
+
+            print("yep it learns")
 
 
 """

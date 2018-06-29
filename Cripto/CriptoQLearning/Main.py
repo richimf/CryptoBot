@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # Inputs
     balance = 200
     num_bitcoins = 3
-    size_episode = 7
+    size_episode = 32
 
     # Data
     data = getStockDataVec("bitcoin")  # CSV data
