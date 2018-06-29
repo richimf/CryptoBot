@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # plot(data)
 
     # Setup Reinforcement Learning
-    actions = [Action.SELL, Action.BUY, Action.HOLD]
+    actions = [Action.BUY, Action.SELL, Action.HOLD]
     brain = RL(actions)
 
     # Trading

@@ -10,7 +10,7 @@ from collections import deque
 
 class QLearning:
 
-    def __init__(self, actions, action_size=3, state_size=6, model_name="", e_greedy=0.03, is_eval=False):
+    def __init__(self, actions, action_size=3, state_size=6, model_name="", e_greedy=1, is_eval=False):
         self.is_eval = is_eval
         self.actions = actions  # a list of actions [Action.BUY, Action.SELL, Action.HOLD]
         self.action_size = action_size
@@ -42,7 +42,13 @@ class QLearning:
     def chooseAction(self, state):
         # self.appendNotExistingState(state)
         action = self.action(state)
-        print("Action = ", action)
+        action_str = "HOLD"
+        if action == 1:
+            action_str = "BUY"
+        elif action == 2:
+            action_str = "SELL"
+
+        print("Action = ", action_str)
         return action
 
     def action(self, state):

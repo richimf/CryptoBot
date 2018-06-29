@@ -7,27 +7,21 @@ from CriptoQLearning.Action import Action
 
 
 class Trade:
-    reward = 0
 
-    def __init__(self, data, size_episode=7, bitcoins=0, balance=0, q_learning=None):
+    def __init__(self, data, size_episode=7, coins=0, balance=0, q_learning=None, percentage=0.25):
         self.data = data
         self.balance = balance
-        self.bitcoins = bitcoins
+        self.coins = coins
+        self.percentage = percentage  # percentage for investment
         self.size_episode = size_episode
         self.RL = q_learning
 
     def trade(self):
-        # inputs
         reward = 0
-        data = getStockDataVec("bitcoin")  # CSV data
-        if len(data) == 0:
-            print("Data is empty")
-            pass
-
-        data_length = len(data) - 1
+        data_length = len(self.data) - 1
 
         num_episodes = int(data_length / self.size_episode)
-        inventory = [data[0]]
+        inventory = [self.data[0]]
 
         # plot data
         # plot(data)
@@ -40,7 +34,7 @@ class Trade:
             # loop for each step in episode
             for t in range(1, self.size_episode - 1):
 
-                s_ = getState(data, t, self.size_episode)  # pedazo de data de tamano size_episode
+                s_ = getState(self.data, t, self.size_episode)  # pedazo de data de tamano size_episode
 
                 # RL choose action based on observation
                 action = self.RL.chooseAction(s_)
@@ -51,25 +45,32 @@ class Trade:
                     action = Action.SELL
 
                 # If bitcoins is less than 0
-                if self.bitcoins <= 0:
+                if self.coins <= 0:
                     action = Action.SELL
 
                 # For every state in episode
                 if action == Action.BUY:
-                    if self.bitcoins / int((data[t])) > 1:
-                        self.bitcoins = self.bitcoins - data[t]
+                    # update number of coins and balance
+                    coin_price = self.data[t]
+                    investment = self.balance * self.percentage
+                    purchased_coins = investment / coin_price
+                    self.coins = self.coins + purchased_coins  # update coins
+                    self.balance = self.balance - investment  # update balance
+
+                    if self.coins / int((self.data[t])) > 1:
+                        self.coins = self.coins - self.data[t]
                         # agregamos a la lista el precio
-                        inventory.append(data[t])
+                        inventory.append(self.data[t])
                 elif action == Action.SELL:
                     if len(inventory) > 0 and t < len(inventory):
                         last_value = inventory[len(inventory) - 1]
-                        self.bitcoins = self.bitcoins + last_value
+                        self.coins = self.coins + last_value
                         inventory.pop(t)
 
                 done = True if t == data_length - 1 else False
 
                 # maximizar
-                reward = reward + self.bitcoins * ((data[t] / data[t - 1]) - 1)
+                reward = reward + self.coins * ((self.data[t] / self.data[t - 1]) - 1)
                 # rewards.append(reward)
                 # RL learn from this transition
                 # RL.learn()

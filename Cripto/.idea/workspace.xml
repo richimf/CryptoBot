@@ -14,20 +14,17 @@
       <file leaf-file-name="Qlearning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CriptoQLearning/Qlearning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
-              <folding>
-                <element signature="e#2547#2917#1" />
-              </folding>
+            <state relative-caret-position="207">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Trade.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Trade.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CriptoQLearning/Trade.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
               <folding>
                 <element signature="e#101#140#0" expanded="true" />
               </folding>
@@ -35,13 +32,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CriptoQLearning/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+            <state relative-caret-position="240">
+              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#347#715#0" />
               </folding>
             </state>
           </provider>
@@ -119,24 +117,21 @@
         <option value="$PROJECT_DIR$/Trader/train.py" />
         <option value="$PROJECT_DIR$/PolicyGradient/runCartPole.py" />
         <option value="$PROJECT_DIR$/example/RL_brain.py" />
-        <option value="$PROJECT_DIR$/CriptoQLearning/Qlearning.py" />
         <option value="$PROJECT_DIR$/CriptoQLearning/Main.py" />
+        <option value="$PROJECT_DIR$/CriptoQLearning/Qlearning.py" />
         <option value="$PROJECT_DIR$/CriptoQLearning/Trade.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="36" />
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="833" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,6 +148,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,9 +289,9 @@
       <list>
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.train" />
         <item itemvalue="Python.run_this" />
         <item itemvalue="Python.runCartPole" />
-        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -303,14 +299,14 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="23" width="1440" height="833" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13742071" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13742071" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32983682" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5097529" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.54356307" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5897436" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32509753" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -334,14 +330,19 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Trader/train.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/CriptoQLearning/Qlearning.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Trader/train.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="47" />
+          <url>file://$PROJECT_DIR$/CriptoQLearning/Qlearning.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Trader/agent.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -351,7 +352,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -364,11 +365,17 @@
         <watch expression="state[0]" language="Python" />
         <watch expression="np.shape(state[0])" language="Python" />
         <watch expression="state[0].shape" language="Python" />
+        <watch expression="self.is_eval" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>self.is_eval</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>state[0].shape</expression-string>
         <language-id>Python</language-id>
@@ -414,11 +421,6 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>len(RL.q_table)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -436,90 +438,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/run_this.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/maze_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="97" column="37" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py" />
+    <entry file="file://$PROJECT_DIR$/example/RL_brain.py" />
+    <entry file="file://$PROJECT_DIR$/example/run_this.py" />
+    <entry file="file://$PROJECT_DIR$/example/maze_env.py" />
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/Trade.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -555,13 +485,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/run_MountainCar.py" />
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/__init__.py" />
     <entry file="file://$PROJECT_DIR$/../CriptoEnv/lib/python3.6/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -655,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Trader/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CriptoEnv/lib/python3.6/site-packages/keras/engine/training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -669,63 +586,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Trader/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding>
-            <element signature="e#177#187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/run_this.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#408#441#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/maze_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="e#383#401#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/RL_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#186#204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/RL_brain.py" />
+    <entry file="file://$PROJECT_DIR$/PolicyGradient/runCartPole.py" />
+    <entry file="file://$PROJECT_DIR$/example/run_this.py" />
+    <entry file="file://$PROJECT_DIR$/example/maze_env.py" />
+    <entry file="file://$PROJECT_DIR$/example/RL_brain.py" />
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/Functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -736,26 +601,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CriptoQLearning/Environment.py" />
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/Action.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-end-line="7" />
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CriptoQLearning/Environment.py">
+    <entry file="file://$PROJECT_DIR$/Trader/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state>
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Trader/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/Qlearning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        <state relative-caret-position="207">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CriptoQLearning/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
-            <element signature="e#2547#2917#1" />
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#347#715#0" />
           </folding>
         </state>
       </provider>
@@ -763,19 +646,9 @@
     <entry file="file://$PROJECT_DIR$/CriptoQLearning/Trade.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding>
             <element signature="e#101#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CriptoQLearning/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
