@@ -14,7 +14,7 @@ Una vez actualizado el Q-table, utilizamos los valores de \textbf{s, a, r, s'} p
 \\
 Los resultados  finales son variables, pero en todos los casos se obtiene una ganancia. En la siguiente gráfica se observa que iniciamos con un Balance cercano a \textit{200 USD}, con muchas alzas y bajas pero con tendencia positiva, al final la ganancia es cercana a los \textit{1000 USD}.
 
-
+[Ver Documentación completa](https://github.com/richimf/CryptoBot/blob/master/reporte/trading-bitcoin-reinforcement/main.pdf)
 
 
 ## Requirements
