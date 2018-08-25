@@ -7,7 +7,7 @@ Iniciamos el experimento con un saldo inicial o balance, una cantidad positiva f
 Dentro de nuestro código nos apoyamos de la función Sigmoide para obtener un arreglo de tres valores en el siguiente orden **[BUY, SELL,  HOLD]**, luego entonces, elegimos la acción con el mayor valor de probabilidad.
 Cada acción actualiza el *balance*, el número de bitcoins adquiridos y la ganancia final. Recordemos que la idea es obtener la mayor cantidad de ganancia posible, para ello nos apoyamos en la siguiente ecuación, donde `p(t)` es el precio del bitcoin en el tiempo `t`.
 
-> $reward = bitcoins*[p(t)/p(t-1)-1]$
+> reward = bitcoins*[p(t)/p(t-1)-1]
 
 En cada iteración actualizamos el **Q-table** con los valores del estado actual `s`, la acción elegida `a`, la ganancia obtenida o `reward r` y el valor del siguiente estado `s'`.
 Una vez actualizado el *Q-table*, utilizamos los valores de `s, a, r, s'` para alimentar la formula de acción valor, obtener el siguiente estado y volver a iterar dentro del episodio.
