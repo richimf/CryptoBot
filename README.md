@@ -1,5 +1,5 @@
-# Cripto Bot
-## Experimentacion y Resultados
+# CriptoBot
+## Experimentación y Resultados
 Se comienza a experimentar con los datos del historial de precio del Bitcoin BTC en dolares (de un archivo CSV). Estos datos servirán para entrenar al agente del algoritmo de **Q-learning**. La idea es poder invertir dinero en cierto tiempo y obtener pequeñas ganancias en intervalos de tiempo cortos.
 
 Iniciamos el experimento con un saldo inicial o balance, una cantidad positiva fija de criptomonedas y un numero de episodios, los cuales están definidos por la *longitud de los datos del archivo CSV / el tamaño del episodio*. Teniendo estos datos, comenzamos a iterar en cada **step**, cada step es definido como el precio del bitcon en el tiempo **t**.
