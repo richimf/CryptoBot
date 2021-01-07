@@ -7,6 +7,9 @@ Thumbs.db
 # Libary
 /CriptoEnv
 
+# Cache
+__pycache__
+
 # Environments
 .env
 .venv
