@@ -9,6 +9,8 @@ davidrmh:
 # john.*:
 #   - foo
 #   - bar
-# # fallback
-# .*:
-#   - foo
+# fallback
+.*:
+  - YoSoyIsma
+  - davidrmh
+  - casbrot
