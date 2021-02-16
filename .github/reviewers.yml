@@ -1,0 +1,14 @@
+# issuer: reviewer
+shufo:
+  - YoSoyIsma
+# you can set multiple reviewers
+smith:
+  - davidrmh
+  - casbrot
+# you can use regexp to match issuer
+# john.*:
+#   - foo
+#   - bar
+# # fallback
+# .*:
+#   - foo
