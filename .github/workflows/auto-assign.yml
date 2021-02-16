@@ -1,13 +1,13 @@
-name: "Auto Assign"
-on:
-  pull_request:
-    types: [opened, ready_for_review, reopened, synchronize]
+# name: "Auto Assign"
+# on:
+#   pull_request:
+#     types: [opened, ready_for_review, reopened, synchronize]
 
-jobs:
-  assign:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
-      with:
-        config: '.github/reviewers.yml'
-        token: ${{ secrets.GITHUB_TOKEN }}
+# jobs:
+#   assign:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+#       with:
+#         config: '.github/reviewers.yml'
+#         token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,17 +1,19 @@
-# issuer: reviewer
-richimf: 
-  - YoSoyIsma
-# you can set multiple reviewers
-pull_request_user_sender:
-  - user_name_of_reviewer1
-  - user_name_of_reviewer2
+# # issuer: reviewer
+# richimf: 
+#   - YoSoyIsma
+# # you can set multiple reviewers
+# pull_request_user_sender:
+#   - user_name_of_reviewer1
+#   - user_name_of_reviewer2
 
-# you can use regexp to match issuer
-# john.*:
-#   - foo
-#   - bar
+# # you can use regexp to match issuer
+# # john.*:
+# #   - foo
+# #   - bar
 
-# fallback
-.*:
-  - davidrmh
-  - casbrot
+# # fallback
+# .*:
+#   - default_reviewer_1
+#   - default_reviewer_2
+#   - davidrmh
+#   - casbrot

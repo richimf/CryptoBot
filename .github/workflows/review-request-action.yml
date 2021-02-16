@@ -1,0 +1,22 @@
+name: "Review Request Action"
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Send Review Request 1"
+      if: github.actor == 'richimf'
+      uses: kunihiko-t/review-request-action@v0.1.3
+      with:
+        repo-token: ${{ secrets.TOKEN }}
+        reviewers: "YoSoyIsma"
+        team-reviewers: "davidrmh,casbrot"
+    # - name: "Send Review Request 2"
+    #   if: github.actor == 'valletta-io'
+    #   uses: kunihiko-t/review-request-action@master
+    #   with:
+    #     repo-token: ${{ secrets.TOKEN }}
+    #     reviewers: "kunihiko-t"
+    #     team-reviewers: "a,b,c"
