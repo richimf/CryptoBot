@@ -1,28 +1,45 @@
-# Set to true to add reviewers to pull requests
-addReviewers: true
+groups:
+  - name: devs # name of the group
+    reviewers: 1 # how many reviewers do you want to assign?
+    usernames: # github usernames of the reviewers
+      - YoSoyIsma
+      - richimf
 
-# Set to true to add assignees to pull requests
-addAssignees: false
+  - name: qas # you can have multiple groups, it will evaluate them separately
+    reviewers: 1
+    usernames:
+      - davidrmh
+      - casbrot
 
-# A list of reviewers to be added to pull requests (GitHub user name)
-reviewers:
-  - richimf
-  #- reviewerB
-  #- reviewerC
 
-# A number of reviewers added to the pull request
-# Set 0 to add all the reviewers (default: 0)
-numberOfReviewers: 1
+# # Set to true to add reviewers to pull requests
+# addReviewers: true
 
-# A list of assignees, overrides reviewers if set
+# # Set to true to add assignees to pull requests
+# addAssignees: false
+
+# # A list of reviewers to be added to pull requests (GitHub user name)
+# reviewers:
+#   - richimf
+#   - YoSoyIsma
+#   - davidrmh
+#   - casbrot
+#   #- reviewerB
+#   #- reviewerC
+
+# # A number of reviewers added to the pull request
+# # Set 0 to add all the reviewers (default: 0)
+# numberOfReviewers: 0
+
+# # A list of assignees, overrides reviewers if set
 # assignees:
-#   - assigneeA
+# - richimf
 
-# A number of assignees to add to the pull request
-# Set to 0 to add all of the assignees.
-# Uses numberOfReviewers if unset.
-# numberOfAssignees: 2
+# # A number of assignees to add to the pull request
+# # Set to 0 to add all of the assignees.
+# # Uses numberOfReviewers if unset.
+# # numberOfAssignees: 2
 
-# A list of keywords to be skipped the process that add reviewers if pull requests include it
-# skipKeywords:
-#   - wip
+# # A list of keywords to be skipped the process that add reviewers if pull requests include it
+# # skipKeywords:
+# #   - wip
