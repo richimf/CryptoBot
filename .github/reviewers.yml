@@ -1,16 +1,17 @@
 # issuer: reviewer
-richimf:
+richimf: 
   - YoSoyIsma
 # you can set multiple reviewers
-davidrmh:
-  - davidrmh
-  # - casbrot
+pull_request_user_sender:
+  - user_name_of_reviewer1
+  - user_name_of_reviewer2
+
 # you can use regexp to match issuer
 # john.*:
 #   - foo
 #   - bar
+
 # fallback
 .*:
-  - YoSoyIsma
   - davidrmh
   - casbrot
