@@ -1,8 +1,5 @@
 # Ticket number or name
 
-Ticket: [Related Jira ticket]
-
-### Type of change, fix, new feature,...
 
 ## Description
 
