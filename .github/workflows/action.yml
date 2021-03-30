@@ -31,7 +31,7 @@ jobs:
           config: '.github/qareviewers.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
   # The following step is only launched when the reviewers validation is OK
-  format-check:
+  swift-lint-check:
     runs-on: ubuntu-latest
     needs: 'reviewers'
     steps:
