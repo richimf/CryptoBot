@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Set the Reviewers
-        if: ${{ github.event_name == 'pull_request' && github.event.action == 'assigned' }}
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
         uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
