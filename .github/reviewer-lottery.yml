@@ -1,0 +1,8 @@
+# On this file we define a group of developers from which one is selected as PR reviewer randomly.
+groups:
+  - name: CORE   # name of the group
+    reviewers: 1 # how many reviewers do you want to assign
+    usernames:   # github usernames of the reviewers
+      - YoSoyIsma
+      - richimf
+      - casbrot
