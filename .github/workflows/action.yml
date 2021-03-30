@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Reviewers jeje
-        if: ${{ github.event.pull_request.opened }}
+        if: |
+          (
+            (github.event.pull_request.opened)
+          )
         uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -20,3 +23,4 @@ jobs:
         # with:
         #   config: '.github/auto_assign.yml'
         #   token: ${{ secrets.GITHUB_TOKEN }} 
+#  ${{ github.event.pull_request.opened }}
