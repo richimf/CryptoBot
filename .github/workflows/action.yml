@@ -17,8 +17,8 @@ jobs:
   # Reviewers assignation
   reviewers:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
     steps:
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
       - uses: actions/checkout@v1
       - name: Set the Reviewers
         # Devs
