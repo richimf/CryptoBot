@@ -5,13 +5,6 @@ groups:
       - YoSoyIsma
       - richimf
 
-  - name: qas # you can have multiple groups, it will evaluate them separately
-    reviewers: 1
-    usernames:
-      - davidrmh
-      - casbrot
-
-
 # # Set to true to add reviewers to pull requests
 # addReviewers: true
 
