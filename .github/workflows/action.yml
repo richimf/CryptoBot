@@ -1,24 +1,19 @@
-name: "Reviewer lottery"
+# Github action for Pull Request validations
+name: Pull Request Check
+
 on:
   pull_request:
-    types: [opened, ready_for_review, reopened]
+    types: [opened, edited, reopened, synchronize]
 
-jobs:
-  test:
+jobs:  
+  # Reviewers assignation
+  reviewers:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: uesteibar/reviewer-lottery@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-# name: 'Auto Assign'
-# on: pull_request
-
-# jobs:
-#   add-reviews:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: kentaro-m/auto-assign-action@v1.1.2
-#         with:
-#           configuration-path: ".github/auto_assign.yml"
+      - uses: actions/checkout@v1
+      - name: Reviewers
+        if: github.event.pull_request.opened == true
+        uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+        with:
+          config: '.github/auto_assign.yml'
+          token: ${{ secrets.GITHUB_TOKEN }} 
