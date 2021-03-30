@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Reviewers jeje
         # if: ${{ github.event.issue.pull_request }}
-        event: pull_request.opened
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
         uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
