@@ -33,7 +33,6 @@ jobs:
   # The following step is only launched when the reviewers validation is OK
   swift-lint-check:
     runs-on: ubuntu-latest
-    needs: 'reviewers'
     steps:
       - uses: actions/checkout@v2
       - name: Fetch base ref
