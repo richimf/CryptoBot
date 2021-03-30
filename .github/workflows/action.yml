@@ -20,13 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Set the Reviewers
-        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'reopened' || github.event.action == 'ready_for_review' }}
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
         uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   reviewers-qa:
     runs-on: ubuntu-latest
-    needs: 'reviewers-devs'
     steps:
       - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
         with:
