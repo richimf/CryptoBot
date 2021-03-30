@@ -5,20 +5,46 @@ on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
 
-jobs:  
+jobs: 
+  # Title validation 
+  title-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: seferov/pr-lint-action@master
+        with:
+          title-regex: '^(?:\[IMPROVEMENT\]|\[FEATURE\]|\[BUGFIX\])\[([A-Z])+\-(\d+)\]\s(\w){1,}(\w|\s|\-|\.|\,|\:|\;){1,}$'
+          error-message: '*** Pull Request does not follow the Jira Format: [TYPE][JIRA-ID] Title description ***'
   # Reviewers assignation
   reviewers:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Reviewers jeje
-        # if: ${{ github.event.issue.pull_request }}
+      - name: Set the Reviewers
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+        # Devs
         uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-        # uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
-        # with:
-        #   config: '.github/auto_assign.yml'
-        #   token: ${{ secrets.GITHUB_TOKEN }} 
-#  ${{ github.event.pull_request.opened }}
+        # QA
+        uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+        with:
+          config: '.github/qareviewers.yml'
+          token: ${{ secrets.GITHUB_TOKEN }}
+  # The following step is only launched when the reviewers validation is OK
+  format-check:
+    runs-on: ubuntu-latest
+    needs: 'reviewers'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch base ref
+        if: ${{ always() }}
+        run: |
+            git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
+      - name: SwiftLint (Only files changed in the PR)
+        if: ${{ always() }}
+        uses: henry2423/action-swiftlint@Fix-PR-Lint
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+          DIFF_HEAD: HEAD
+
+
