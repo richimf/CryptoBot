@@ -16,8 +16,8 @@ jobs:
           error-message: '*** Pull Request does not follow the Jira Format: [TYPE][JIRA-ID] Title description ***'
   # Reviewers assignation
   reviewers:
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
     steps:
       - uses: actions/checkout@v1
       - name: Set the Reviewers
