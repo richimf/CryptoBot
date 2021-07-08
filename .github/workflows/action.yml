@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: seferov/pr-lint-action@master
-        if: github.event.action != 'review_requested' && github.event.action != 'edited' && github.event.action != 'reopened' && github.event.action != 'synchronize' && github.event.pull_request.draft == false
+        if: github.event.action.review_requested = true
         with:
           title-regex: '^(?:\[IMPROVEMENT\]|\[FEATURE\]|\[BUGFIX\])\[([A-Z])+\-(\d+)\]\s(\w){1,}(\w|\s|\-|\.|\,|\:|\;){1,}$'
           error-message: '*** Pull Request does not follow the Jira Format: [TYPE][JIRA-ID] Title description ***'
