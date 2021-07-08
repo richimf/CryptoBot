@@ -10,7 +10,9 @@ Add a brief description of the PR and complete a checklist of the most important
 
 - [x] Completed changes or fixes
 - [ ] Missing or not completed changes or fixes...
-
+ 
+ 
+ 
 * PLEASE: Add evidence, such as screenshots or animated gif of the fix or feature *
 
 ## Tests
