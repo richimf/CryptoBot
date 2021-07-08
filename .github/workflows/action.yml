@@ -3,7 +3,7 @@ name: Pull Request Check
 
 on:
   pull_request:
-    types: [opened, edited, reopened, synchronize, ready_for_review]
+    types: [opened, edited, reopened, synchronize, ready_for_review, review_requested]
 
 jobs: 
   # Title validation 
