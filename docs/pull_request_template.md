@@ -8,6 +8,8 @@ Ticket: [Related Jira ticket]
 dsdsd
 Add a brief description of the PR and complete a checklist of the most important changes.
 
+
+
 - [x] Completed changes or fixes
 - [ ] Missing or not completed changes or fixes...
 
