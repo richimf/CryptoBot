@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: seferov/pr-lint-action@master
+        if: github.event.pull_request.draft == true
         with:
           title-regex: '^(?:\[IMPROVEMENT\]|\[FEATURE\]|\[BUGFIX\])\[([A-Z])+\-(\d+)\]\s(\w){1,}(\w|\s|\-|\.|\,|\:|\;){1,}$'
           error-message: '*** Pull Request does not follow the Jira Format: [TYPE][JIRA-ID] Title description ***'
@@ -18,8 +19,8 @@ jobs:
   reviewers-qa:
     runs-on: ubuntu-latest
     steps:
-     # if: github.event.pull_request.draft == true
       - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+        if: github.event.pull_request.draft == true
         with:
           config: '.github/auto_assign.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
