@@ -22,13 +22,14 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set the Reviewers
         # Devs
-        uses: uesteibar/reviewer-lottery@v1
         if: ${{ github.event_name == 'ready_for_review' }}
+        uses: uesteibar/reviewer-lottery@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         # QA
-      - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+      - name: Set the Reviewers 2
         if: ${{ github.event_name == 'ready_for_review' }}
+        uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
         with:
           config: '.github/qareviewers.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
