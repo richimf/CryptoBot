@@ -4,6 +4,7 @@ groups:
     usernames: # github usernames of the reviewers
       - casbrot
       - richimf
+      - YoSoyIsma
 
 # # Set to true to add reviewers to pull requests
 # addReviewers: true
