@@ -31,19 +31,5 @@ jobs:
         with:
           config: '.github/qareviewers.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
-  # SwiftLint checks
-  swift-lint-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Fetch base ref
-        if: ${{ always() }}
-        run: |
-            git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
-      - name: SwiftLint (Only files changed in the PR)
-        if: ${{ always() }}
-        uses: henry2423/action-swiftlint@Fix-PR-Lint
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
-          DIFF_HEAD: HEAD
+
 
