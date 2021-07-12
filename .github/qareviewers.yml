@@ -1,37 +1,4 @@
-groups:
-  - name: devs # name of the group
-    reviewers: 1 # how many reviewers do you want to assign?
-    usernames: # github usernames of the reviewers
-      - casbrot
+### Growth
+richimf:
+  - YoSoyIsma 
 
-# # Set to true to add reviewers to pull requests
-# addReviewers: true
-
-# # Set to true to add assignees to pull requests
-# addAssignees: false
-
-# # A list of reviewers to be added to pull requests (GitHub user name)
-# reviewers:
-#   - richimf
-#   - YoSoyIsma
-#   - davidrmh
-#   - casbrot
-#   #- reviewerB
-#   #- reviewerC
-
-# # A number of reviewers added to the pull request
-# # Set 0 to add all the reviewers (default: 0)
-# numberOfReviewers: 0
-
-# # A list of assignees, overrides reviewers if set
-# assignees:
-# - richimf
-
-# # A number of assignees to add to the pull request
-# # Set to 0 to add all of the assignees.
-# # Uses numberOfReviewers if unset.
-# # numberOfAssignees: 2
-
-# # A list of keywords to be skipped the process that add reviewers if pull requests include it
-# # skipKeywords:
-# #   - wip
