@@ -2,8 +2,8 @@
 
 Ticket: [Related Jira ticket]
 
-### Type of change, fix, new feature,...
-
+### Typfde of change, fix, new feature,...
+fsfdsfsd
 ## Description
 dsdsd
 Add a brief description of the PR and complete a checklist of the most important changes.
