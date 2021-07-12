@@ -3,4 +3,5 @@ groups:
   - name: CORE   # name of the group
     reviewers: 1 # how many reviewers do you want to assign
     usernames:   # github usernames of the reviewers
-      - casbrot  
+      - YoSoyIsma 
+
