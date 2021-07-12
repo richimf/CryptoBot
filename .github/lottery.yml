@@ -1,0 +1,12 @@
+# This document contains QA reviewers per Pull Request submiter.
+
+# the syntax is the following
+# pr_submiter_username:
+#   - reviewer_username1
+#   - reviewer_username2
+#   - reviewer_username3
+
+### 
+richimf:
+  - YoSoyIsma
+
