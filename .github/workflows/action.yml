@@ -21,13 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Set the Reviewers
-        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
         # Devs
         uses: uesteibar/reviewer-lottery@v1
+        if: ${{ github.event_name == 'ready_for_review' }}
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         # QA
       - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+        if: ${{ github.event_name == 'ready_for_review' }}
         with:
           config: '.github/qareviewers.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
