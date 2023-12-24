@@ -2,7 +2,7 @@
 
 Ticket: [Related Jira ticket]
 
-### Type of change, fix, new feature,...
+### Type of change, fix, new feature
 
 ## Description
 dsdsd
